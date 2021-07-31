@@ -25,14 +25,14 @@ Router.get("/r/:_id", async (req, res) => {
     }
 });
   
-  /*
-  Route     /c
-  Des       Get all food based on particular category
-  Params    category
-  Access    Public
-  Method    GET  
-  */
-  Router.get("/r/:category", async (req, res) => {
+/*
+Route     /c
+Des       Get all food based on particular category
+Params    category
+Access    Public
+Method    GET  
+*/
+Router.get("/r/:category", async (req, res) => {
     try {
       const { category } = req.params;
       const foods = await FoodModel.find({
