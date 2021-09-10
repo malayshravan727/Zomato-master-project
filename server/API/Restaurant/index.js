@@ -5,7 +5,8 @@ import passport from "passport";
 import { RestaurantModel } from "../../database/allModels"
 
 // validation
-import { ValidateRestaurantCity, ValidateRestaurantSearchString } from "../../Validation/restaurant";
+import { ValidateRestaurantCity, ValidateRestaurantSearchString,} from "../../Validation/restaurant";
+import { ValidateRestaurantId } from "../../Validation/food";
 
 const Router = express.Router();
 

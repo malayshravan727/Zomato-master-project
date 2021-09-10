@@ -1,5 +1,10 @@
 import googleOAuth from "passport-google-oauth20";
 
+import dotenv from "dotenv";
+dotenv.config({
+  path: require("path").resolve(__dirname, "../.env"),
+});
+
 import { UserModel } from "../database/allModels";
 
 const GoogleStrategy = googleOAuth.Strategy;
@@ -8,8 +13,9 @@ export default (passport) => {
   passport.use(
     new GoogleStrategy(
       {
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        clientID:
+          "448325328376-0noqmrddvmqm9lp1jin5c42jjna76ldc.apps.googleusercontent.com",
+        clientSecret: "_ROue0E0m9cfiC6bLEJ6iMCz",
         callbackURL: "http://localhost:4000/auth/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {

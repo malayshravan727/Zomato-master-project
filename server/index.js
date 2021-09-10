@@ -21,11 +21,13 @@ import Reviews from "./API/Reviews";
 import User from "./API/User";
 import Menu from "./API/Menu";
 import MailService from "./API/Mail";
+import Payments from "./API/Payments";
 
 // Database connection
 import ConnectDB from "./database/connection";
 
 const zomato = express();
+console.log(process.env);
 
 //application middlewares
 zomato.use(express.json());
@@ -49,10 +51,11 @@ zomato.use("/reviews", Reviews);
 zomato.use("/user", User);
 zomato.use("/menu", Menu);
 zomato.use("/mail", MailService);
+zomato.use("/payments", Payments);
 
 zomato.get("/" , (req, res) => res.json({ message: "Setup success" }));
-
-zomato.listen(4000, () =>
+const port = process.env.PORT || 4000;
+zomato.listen(port, () =>
   ConnectDB()
     .then(() => console.log("Server is running"))
     .catch(() =>
