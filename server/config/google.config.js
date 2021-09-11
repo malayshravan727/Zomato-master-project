@@ -14,8 +14,8 @@ export default (passport) => {
     new GoogleStrategy(
       {
         clientID:
-          "448325328376-0noqmrddvmqm9lp1jin5c42jjna76ldc.apps.googleusercontent.com",
-        clientSecret: "_ROue0E0m9cfiC6bLEJ6iMCz",
+          "1082404466629-3uv97gf5dd9ua6nkdvrb4g83mk7kn63u.apps.googleusercontent.com",
+        clientSecret: "c33XYVq6CT_DgCmgkfLaYZLh",
         callbackURL: "http://localhost:4000/auth/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
