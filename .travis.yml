@@ -10,14 +10,14 @@ script:
 
 after_success:
   # Build all the docker files
-  - docker build -t mshravan/zomato-shapeai-client ./client
-  - docker build -t mshravan/zomato-shapeai-server ./server
-  - docker build -t mshravan/zomato-shapeai-nginx ./nginx
+  - docker build -t mshravan/zomato-client ./client
+  - docker build -t mshravan/zomato-server ./server
+  - docker build -t mshravan/zomato-nginx ./nginx
 
   # log in docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # push to docker hub
-  - docker push mshravan/zomato-shapeai-client
-  - docker push mshravan/zomato-shapeai-server
-  - docker push mshravan/zomato-shapeai-nginx
+  - docker push mshravan/zomato-client
+  - docker push mshravan/zomato-server
+  - docker push mshravan/zomato-nginx
