@@ -22,7 +22,7 @@ Router.get("/", async (req, res) => {
         await ValidateRestaurantCity(req.query);
 
         const { city } = req.query;
-        const allRestaurants = await RestaurantModel.find({city});
+        const restaurants = await RestaurantModel.find({city});
         return res.json({restaurants});
     }   catch (error) {
         return res.status(500).json({ error: error.message });
@@ -62,12 +62,12 @@ Router.get("/search", async (req, res) => {
         await ValidateRestaurantSearchString(req.body);
 
         const { searchString } = req.body;
-        const restaurants = await RestaurantModel.find({
+        const restaurant = await RestaurantModel.find({
             name: { $regex: searchString, $optional: "i" },
         });
-        if(!restaurants)
+        if(!restaurant)
           return res.status(404).json({ error: `No Restaurant matched with ${searchString}` });
-        return res.json({ restaurants });
+        return res.json({ restaurant });
     }   catch (error) {
         return res.status(500).json({ error: error.message });
     }
