@@ -8,7 +8,7 @@ import AddReviewCard from "../../Components/restaurant/Reviews/AddReviewCard";
 import { getReviews } from "../../Redux/Reducer/Reviews/review.action";
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState(["", "", ""]);
 
   const reduxState = useSelector(
     (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
